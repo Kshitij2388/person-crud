@@ -10,9 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "PERSON_HOBBIES")
+@Table(name = "PERSON_HOBBIES", uniqueConstraints = {@UniqueConstraint(columnNames = {"PERSON_ID","HOBBY_ID"})})
 public class PersonHobby implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -27,6 +28,12 @@ public class PersonHobby implements Serializable {
 	@ManyToOne
 	private Hobby hobby;
 	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	public Person getPerson() {
 		return person;
 	}

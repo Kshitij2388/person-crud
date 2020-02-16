@@ -17,4 +17,16 @@ public class HobbyService {
 	public List<Hobby> findAll() {
 		return hobbyRepository.findAll();
 	}
+	
+	public List<Hobby> findByPersonId(Integer personId) {
+		return hobbyRepository.findByPersonId(personId);
+	}
+	
+	public Hobby findByName(String hobby) {
+		return hobbyRepository.findByHobby(hobby);
+	}
+	
+	public Hobby save(Hobby hobby) {
+		return hobbyRepository.save(hobby);
+	}
 }

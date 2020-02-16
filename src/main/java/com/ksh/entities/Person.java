@@ -1,8 +1,9 @@
 package com.ksh.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "persons")
@@ -28,9 +31,16 @@ public class Person implements Serializable {
 	private Integer age;
 	@Column(name = "FAVOURITE_COLOR")
 	private String favouriteColor;
-	@OneToMany(mappedBy = "person")
-	private List<PersonHobby> personHobbies;
+	@JsonIgnore
+	@OneToMany(mappedBy = "person", cascade = CascadeType.ALL)
+	private Set<PersonHobby> personHobbies;
 	
+	public Set<PersonHobby> getPersonHobbies() {
+		return personHobbies;
+	}
+	public void setPersonHobbies(Set<PersonHobby> personHobbies) {
+		this.personHobbies = personHobbies;
+	}
 	public Integer getId() {
 		return id;
 	}
