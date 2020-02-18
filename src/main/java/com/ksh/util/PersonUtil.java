@@ -11,10 +11,10 @@ public class PersonUtil {
 	public static PersonDto entityToDto(Person person, List<Hobby> hobbies) {
 		PersonDto dto = new PersonDto();
 		dto.setAge(person.getAge());
-		dto.setFavourite_color(person.getFavouriteColor());
-		dto.setFirst_name(person.getFirstName());
+		dto.setFavouriteColor(person.getFavouriteColor());
+		dto.setFirstName(person.getFirstName());
 		dto.setId(person.getId());
-		dto.setLast_name(person.getLastName());
+		dto.setLastName(person.getLastName());
 		if(hobbies != null) {
 			int size = hobbies.size();
 			String[] hobby = new String[size];
@@ -34,10 +34,10 @@ public class PersonUtil {
 	
 	public static Person dtoToEntity(PersonDto dto, Person person) {
 		person.setAge(dto.getAge());
-		person.setFavouriteColor(dto.getFavourite_color());
-		person.setFirstName(dto.getFirst_name());
+		person.setFavouriteColor(dto.getFavouriteColor());
+		person.setFirstName(dto.getFirstName());
 		person.setId(dto.getId());
-		person.setLastName(dto.getLast_name());
+		person.setLastName(dto.getLastName());
 		return person;
 	}
 }

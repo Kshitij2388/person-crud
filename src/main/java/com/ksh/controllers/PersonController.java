@@ -49,7 +49,7 @@ public class PersonController {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public CommonResponse findAll(@RequestBody PersonDto personDto) {
+	public CommonResponse save(@RequestBody PersonDto personDto) {
 		List<Hobby> hobbies = new ArrayList<>();
 		Person person = null;
 		if(personDto != null && personDto.getId() != null) {
