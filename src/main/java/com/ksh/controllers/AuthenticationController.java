@@ -37,6 +37,6 @@ public class AuthenticationController {
 		}
 		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationReq.getUserName());
 		final String jwt = jwtUtil.generateToken(userDetails);
-		return new CommonResponse(200, Constants.SUCCESS, jwt);
+		return new CommonResponse(200, Constants.SUCCESS,jwt);
 	}
 }
